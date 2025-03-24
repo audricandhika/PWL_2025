@@ -252,7 +252,7 @@ class KategoriController extends Controller
         return view('kategori.confirm_ajax', ['kategori' => $kategori]);
     }
 
-    public function deleteAjax(Request $request, $id)
+    public function delete_ajax(Request $request, $id)
     {
         if ($request->ajax() || $request->wantsJson()) {
             $kategori = KategoriModel::find($id);
