@@ -49,6 +49,8 @@ Route::pattern('id', '[0-9]+');                                                 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'postlogin']);
 Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
+Route::get('register', [AuthController::class, 'register']);
+Route::post('register', [AuthController::class, 'PostRegister']);
 
 Route::middleware(['auth'])->group(function(){                                          // Semua Route yang ada di gropu harus login dahulu
     Route::get('/', [WelcomeController::class, 'index']);
