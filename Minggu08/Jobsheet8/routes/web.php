@@ -44,7 +44,7 @@ Route::get('user/ubah/{id}', [UserController::class, 'ubah']);
 Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
 Route::get('/user/hapus/{id}', [UserController::class, "hapus"]);
 
-Route::pattern('id', '[0-9]+');                                                         // Artinya ketika ada parameter {id}, maka harus berupa angka
+Route::pattern('id', '[0-9]+');                                                             // Artinya ketika ada parameter {id}, maka harus berupa angka
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'postlogin']);
@@ -52,7 +52,7 @@ Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::get('register', [AuthController::class, 'register']);
 Route::post('register', [AuthController::class, 'PostRegister']);
 
-Route::middleware(['auth'])->group(function(){                                          // Semua Route yang ada di gropu harus login dahulu
+Route::middleware(['auth'])->group(function(){                                              // Semua Route yang ada di gropu harus login dahulu
     Route::get('/', [WelcomeController::class, 'index']);
 
     Route::group(['prefix' => 'user'], function () {
@@ -71,6 +71,8 @@ Route::middleware(['auth'])->group(function(){                                  
             Route::get('/{id}/delete_ajax', [UserController::class, 'confirm_ajax']);       // untuk tampilkan form confirm delete user Ajax
             Route::delete('/{id}/delete_ajax', [UserController::class, 'delete_ajax']);     // untuk hapus data user Ajax
             Route::delete('/{id}', [UserController::class, 'destroy']);                     // menghapus data user
+            Route::get('/import', [UserController::class, 'import']);                     
+            Route::post('/import_ajax', [UserController::class, 'import_ajax']);
         });
     });
     
@@ -90,6 +92,8 @@ Route::middleware(['auth'])->group(function(){                                  
             Route::get('/{id}/delete_ajax', [LevelController::class, 'confirm_ajax']);       
             Route::delete('/{id}/delete_ajax', [LevelController::class, 'delete_ajax']);   
             Route::delete('/{id}', [LevelController::class, 'destroy']);
+            Route::get('/import', [LevelController::class, 'import']);                     
+            Route::post('/import_ajax', [LevelController::class, 'import_ajax']);
         });
     });
     
@@ -109,6 +113,8 @@ Route::middleware(['auth'])->group(function(){                                  
             Route::get('/{id}/delete_ajax', [KategoriController::class, 'confirm_ajax']);       
             Route::delete('/{id}/delete_ajax', [KategoriController::class, 'delete_ajax']);     
             Route::delete('/{id}', [KategoriController::class, 'destroy']);
+            Route::get('/import', [KategoriController::class, 'import']);                     
+            Route::post('/import_ajax', [KategoriController::class, 'import_ajax']);
         });
     });
     
@@ -128,6 +134,8 @@ Route::middleware(['auth'])->group(function(){                                  
             Route::get('/{id}/delete_ajax', [StokController::class, 'confirm_ajax']);       
             Route::delete('/{id}/delete_ajax', [StokController::class, 'delete_ajax']);   
             Route::delete('/{id}', [StokController::class, 'destroy']);
+            Route::get('/import', [StokController::class, 'import']);                     
+            Route::post('/import_ajax', [StokController::class, 'import_ajax']);
         });
     });
     
@@ -147,6 +155,8 @@ Route::middleware(['auth'])->group(function(){                                  
             Route::get('/{id}/delete_ajax', [BarangController::class, 'confirm_ajax']);       
             Route::delete('/{id}/delete_ajax', [BarangController::class, 'delete_ajax']);   
             Route::delete('/{id}', [BarangController::class, 'destroy']);
+            Route::get('/import', [BarangController::class, 'import']);                     // Ajax form upload excel
+            Route::post('/import_ajax', [BarangController::class, 'import_ajax']);          // Ajax import excel
         });
     });
 
