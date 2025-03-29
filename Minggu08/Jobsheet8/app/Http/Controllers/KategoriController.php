@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use PhpOffice\PhpSpreadsheet\IOFactory; 
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class KategoriController extends Controller
 {
@@ -338,7 +339,7 @@ class KategoriController extends Controller
         return redirect('/');
     }
     
-    public function export_ajax()
+    public function export_excel()
     {
         $kategori = KategoriModel::select('kategori_kode', 'kategori_nama')
                                  ->orderBy('kategori_kode')
@@ -383,5 +384,20 @@ class KategoriController extends Controller
         
         $writer->save('php://output');
         exit;    
+    }
+
+    public function export_pdf()
+    {
+        $kategori = KategoriModel::select('kategori_kode', 'kategori_nama')
+                                 ->orderBy('kategori_kode')
+                                 ->get();
+
+        // use Barryvdh\DomPDF\Facade\Pdf;
+        $pdf = Pdf::loadView('kategori.export_pdf', ['kategori' => $kategori]);
+        $pdf->setPaper('a4', 'portrait'); 
+        $pdf->setOption("isRemoteEnabled", true);
+        $pdf->render();
+
+        return $pdf->stream('Data kategori '.date('Y-m-d H:i:s').'.pdf');
     }
 }

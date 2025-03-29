@@ -9,6 +9,7 @@ use App\Models\UserModel;
 use Yajra\DataTables\Facades\DataTables;
 use PhpOffice\PhpSpreadsheet\IOFactory; 
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StokController extends Controller
 {
@@ -347,11 +348,11 @@ class StokController extends Controller
         return redirect('/');
     }
     
-    public function export_ajax()
+    public function export_excel()
     {
         $stok = StokModel::select('barang_id', 'user_id', 'stok_tanggal', 'stok_jumlah')
                          ->orderBy('user_id')
-                         ->with('user')
+                         ->with('barang', 'user')
                          ->get();
         
         $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
@@ -397,5 +398,21 @@ class StokController extends Controller
         
         $writer->save('php://output');
         exit;    
-    }    
+    }
+    
+    public function export_pdf()
+    {
+        $stok = StokModel::select('barang_id', 'user_id', 'stok_tanggal', 'stok_jumlah')
+                         ->orderBy('user_id')
+                         ->with('barang', 'user')
+                         ->get();
+
+        // use Barryvdh\DomPDF\Facade\Pdf;
+        $pdf = Pdf::loadView('stok.export_pdf', ['stok' => $stok]);
+        $pdf->setPaper('a4', 'portrait'); 
+        $pdf->setOption("isRemoteEnabled", true); 
+        $pdf->render();
+
+        return $pdf->stream('Data Stok '.date('Y-m-d H:i:s').'.pdf');
+    }
 }
