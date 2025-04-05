@@ -52,8 +52,10 @@ Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::get('register', [AuthController::class, 'register']);
 Route::post('register', [AuthController::class, 'PostRegister']);
 
-Route::middleware(['auth'])->group(function(){                                              // Semua Route yang ada di gropu harus login dahulu
+Route::middleware(['auth'])->group(function(){                                              // Semua Route yang ada di grop harus login dahulu
     Route::get('/', [WelcomeController::class, 'index']);
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::post('/update-photo', [UserController::class, 'update_photo']);
 
     Route::group(['prefix' => 'user'], function () {
         Route::middleware(['authorize:ADM'])->group(function (){
