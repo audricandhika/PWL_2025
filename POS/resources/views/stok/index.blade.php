@@ -38,7 +38,7 @@
             <table class="table table-bordered table-striped table-hover table-sm" id="table_stok">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Nama Barang</th>
                         <th>Nama User</th>
                         <th>Tanggal Stok</th>

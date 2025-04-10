@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/create_ajax', [UserController::class, 'create_ajax']);             // menampilkan halaman form tambah user Ajax
             Route::post('/ajax', [UserController::class, 'store_ajax']);                    // menyimpan data user baru Ajax
             Route::get('/{id}', [UserController::class, 'show']);                           // menampilkan detail user
+            Route::get('/{id}/show_ajax', [UserController::class, 'show_ajax']);
             Route::get('/{id}/edit', [UserController::class, 'edit']);                      // menampilkan halaman form edit user
             Route::put('/{id}', [UserController::class, 'update']);                         // menyimpan perubahan data user
             Route::get('/{id}/edit_ajax', [UserController::class, 'edit_ajax']);            // menampilkan halaman form edit user AJax
@@ -78,7 +79,8 @@ Route::middleware(['auth'])->group(function(){
             Route::post('/', [LevelController::class, 'store']);
             Route::get('/create_ajax', [LevelController::class, 'create_ajax']);             
             Route::post('/ajax', [LevelController::class, 'store_ajax']);   
-            Route::get('/{id}', [LevelController::class, 'show']);     
+            Route::get('/{id}', [LevelController::class, 'show']);
+            Route::get('/{id}/show_ajax', [LevelController::class, 'show_ajax']);     
             Route::get('/{id}/edit', [LevelController::class, 'edit']);
             Route::put('/{id}', [LevelController::class, 'update']);
             Route::get('/{id}/edit_ajax', [LevelController::class, 'edit_ajax']);           
@@ -101,7 +103,8 @@ Route::middleware(['auth'])->group(function(){
             Route::post('/', [KategoriController::class, 'store']);
             Route::get('/create_ajax', [KategoriController::class, 'create_ajax']);             
             Route::post('/ajax', [KategoriController::class, 'store_ajax']);    
-            Route::get('/{id}', [KategoriController::class, 'show']);     
+            Route::get('/{id}', [KategoriController::class, 'show']);
+            Route::get('/{id}/show_ajax', [KategoriController::class, 'show_ajax']);     
             Route::get('/{id}/edit', [KategoriController::class, 'edit']);
             Route::put('/{id}', [KategoriController::class, 'update']); 
             Route::get('/{id}/edit_ajax', [KategoriController::class, 'edit_ajax']);           
@@ -124,7 +127,8 @@ Route::middleware(['auth'])->group(function(){
             Route::post('/', [StokController::class, 'store']);
             Route::get('/create_ajax', [StokController::class, 'create_ajax']);             
             Route::post('/ajax', [StokController::class, 'store_ajax']);    
-            Route::get('/{id}', [StokController::class, 'show']);     
+            Route::get('/{id}', [StokController::class, 'show']);
+            Route::get('/{id}/show_ajax', [StokController::class, 'show_ajax']);     
             Route::get('/{id}/edit', [StokController::class, 'edit']);
             Route::put('/{id}', [StokController::class, 'update']);   
             Route::get('/{id}/edit_ajax', [StokController::class, 'edit_ajax']);           
@@ -147,7 +151,8 @@ Route::middleware(['auth'])->group(function(){
             Route::post('/', [BarangController::class, 'store']);  
             Route::get('/create_ajax', [BarangController::class, 'create_ajax']);             
             Route::post('/ajax', [BarangController::class, 'store_ajax']);  
-            Route::get('/{id}', [BarangController::class, 'show']);     
+            Route::get('/{id}', [BarangController::class, 'show']);
+            Route::get('/{id}/show_ajax', [BarangController::class, 'show_ajax']);     
             Route::get('/{id}/edit', [BarangController::class, 'edit']);
             Route::put('/{id}', [BarangController::class, 'update']);   
             Route::get('/{id}/edit_ajax', [BarangController::class, 'edit_ajax']);           
@@ -170,7 +175,8 @@ Route::middleware(['auth'])->group(function(){
             Route::post('/', [SupplierController::class, 'store']);  
             Route::get('/create_ajax', [SupplierController::class, 'create_ajax']);             
             Route::post('/ajax', [SupplierController::class, 'store_ajax']);  
-            Route::get('/{id}', [SupplierController::class, 'show']);     
+            Route::get('/{id}', [SupplierController::class, 'show']);
+            Route::get('/{id}/show_ajax', [SupplierController::class, 'show_ajax']);     
             Route::get('/{id}/edit', [SupplierController::class, 'edit']);
             Route::put('/{id}', [SupplierController::class, 'update']);   
             Route::get('/{id}/edit_ajax', [SupplierController::class, 'edit_ajax']);           
@@ -193,7 +199,8 @@ Route::middleware(['auth'])->group(function(){
             Route::post('/', [PenjualanController::class, 'store']);  
             Route::get('/create_ajax', [PenjualanController::class, 'create_ajax']);             
             Route::post('/ajax', [PenjualanController::class, 'store_ajax']);  
-            Route::get('/{id}', [PenjualanController::class, 'show']);     
+            Route::get('/{id}', [PenjualanController::class, 'show']);
+            Route::get('/{id}/show_ajax', [PenjualanController::class, 'show_ajax']);     
             Route::get('/{id}/edit', [PenjualanController::class, 'edit']);
             Route::put('/{id}', [PenjualanController::class, 'update']);   
             Route::get('/{id}/edit_ajax', [PenjualanController::class, 'edit_ajax']);           

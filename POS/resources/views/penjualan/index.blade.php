@@ -37,7 +37,7 @@
             <table class="table table-bordered table-striped table-hover table-sm" id="table_penjualan">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Kode Penjualan</th>
                         <th>Nama User</th>
                         <th>Pembeli</th>

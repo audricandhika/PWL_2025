@@ -266,6 +266,15 @@ class PenjualanController extends Controller
         return redirect('/');
     }
 
+    public function show_ajax(string $id)
+    {
+        $penjualan = PenjualanModel::with('user')->find($id);
+        
+        return view('penjualan.show_ajax', [
+            'penjualan' => $penjualan
+        ]);
+    }
+
     public function import()
     {
         return view('penjualan.import');

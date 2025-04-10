@@ -1,10 +1,10 @@
-@empty($user)
+@empty($penjualan)
     <div id="modal-master" class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Kesalahan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -12,7 +12,7 @@
                     <h5><i class="icon fas fa-ban"></i> Kesalahan!!!</h5>
                     Data yang anda cari tidak ditemukan
                 </div>
-                <a href="{{ url('/user') }}" class="btn btn-warning">Kembali</a>
+                <a href="{{ url('/penjualan') }}" class="btn btn-warning">Kembali</a>
             </div>
         </div>
     </div>
@@ -20,27 +20,31 @@
     <div id="modal-master" class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Data User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Detail Data Penjualan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Level Pengguna</label>
-                    <input type="text" class="form-control" value="{{ $user->level->level_nama }}" readonly>
+                    <label>ID Penjualan</label>
+                    <input type="text" class="form-control" value="{{ $penjualan->penjualan_id }}" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" value="{{ $user->username }}" readonly>
+                    <label>Kode Penjualan</label>
+                    <input type="text" class="form-control" value="{{ $penjualan->penjualan_kode }}" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Nama</label>
-                    <input type="text" class="form-control" value="{{ $user->nama }}" readonly>
+                    <label>Nama User</label>
+                    <input type="text" class="form-control" value="{{ $penjualan->user->nama }}" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" value="********" readonly>
+                    <label>Nama Pembeli</label>
+                    <input type="text" class="form-control" value="{{ $penjualan->pembeli }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Penjualan</label>
+                    <input type="text" class="form-control" value="{{ $penjualan->penjualan_tanggal }}" readonly>
                 </div>
             </div>
             <div class="modal-footer">
