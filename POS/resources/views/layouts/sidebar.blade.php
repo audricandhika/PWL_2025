@@ -13,6 +13,15 @@
   <!-- Sidebar Menu -->
   <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{ auth()->user()->photo_profile ? asset('storage/' . auth()->user()->photo_profile) : asset('img/default-profile.png') }}"
+          class="user-image img-circle elevation-1" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="{{ url('/profile') }}" class="d-block">{{ auth()->user()->nama }}</a>
+        </div>
+      </div>
       <li class="nav-item">
         <a href="{{ url('/') }}" class="nav-link {{ ($activeMenu == 'dashboard')? 'active' : '' }} ">
           <i class="nav-icon fas fa-tachometer-alt"></i>
