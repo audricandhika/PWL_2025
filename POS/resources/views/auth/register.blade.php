@@ -15,8 +15,11 @@
   <!-- Custom Styles -->
   <style>
     body {
-      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-      height: 100vh;
+      background-image: url('{{ asset('img/mmmm.jpg') }}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height:100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -56,7 +59,7 @@
       color: #aaa;
     }
     .btn-primary {
-      background: #6c5ce7;
+      background: #a1c4fd;
       border: none;
       border-radius: 25px;
       padding: 10px;

@@ -74,10 +74,30 @@
         </a>
       </li>
       <li class="nav-item fixed-bottom mx-2">
-        <a href="{{ url('/logout') }}" class="nav-link text-danger {{ ($activeMenu == 'logout') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-sign-out-alt"></i> 
-            <p>Logout</p>
-        </a>            
+        <form id="logout-form" action="{{ url('logout') }}" method="GET" class="d-inline">
+          @csrf
+          <button type="button" id="logout-btn" class="nav-link text-danger">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>Logout</p>
+          </button>
+      </form>
+        <script>
+          document.getElementById('logout-btn').addEventListener('click', function (e) {
+              Swal.fire({
+                  title: 'Logout?',
+                  text: "Yakin ingin keluar?",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#d33',
+                  cancelButtonColor: '#6c757d',
+                  confirmButtonText: 'Ya, Logout'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      document.getElementById('logout-form').submit();
+                  }
+              });
+          });
+        </script>         
     </li>
     </ul>
   </nav>
