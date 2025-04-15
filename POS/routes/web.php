@@ -2,12 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SalesController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;

@@ -31,7 +31,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-blue elevation-4">
+  <aside class="main-sidebar sidebar-light-lightblue elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
       <img src="{{ asset('img/nike.png') }}" alt="Nike Logo" class="brand-image" style="opacity: .8">
