@@ -10,7 +10,7 @@
                 <!-- Section Pembeli -->
                 <div class="card mb-4">
                     <div class="card-header bg-light">
-                        <h6 class="mb-0"><i class="fas fa-user mr-2"></i>Data Pembeli</h6>
+                        <h6 class="mb-0">Data Pembeli</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -28,7 +28,7 @@
                 <!-- Section Barang -->
                 <div class="card mb-4">
                     <div class="card-header bg-light">
-                        <h6 class="mb-0"><i class="fas fa-box mr-2"></i>Data Barang</h6>
+                        <h6 class="mb-0">Data Barang</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
