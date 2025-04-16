@@ -43,6 +43,12 @@
 @push('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
     <script>
+        function modalAction(url = '') {
+            $('#myModal').load(url, function () {
+                $('#myModal').modal('show');
+            });
+        }
+
         function showDetail(url) {
             $('#myModal').load(url, function () {
                 $('#myModal').modal('show');
