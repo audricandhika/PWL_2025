@@ -14,25 +14,25 @@ class PenjualanController extends Controller
     }
     public function store(Request $request)
     {
-        $barang = PenjualanModel::create($request->all());
-        return response()->json($barang, 201);
+        $penjualan = PenjualanModel::create($request->all());
+        return response()->json($penjualan, 201);
     }
 
-    public function show($barang)
+    public function show($penjualan)
     {
-        return PenjualanModel::find($barang);
+        return PenjualanModel::find($penjualan);
     }
 
-    public function update(Request $request, $barang)
+    public function update(Request $request, $penjualan)
     {
-        $data = PenjualanModel::find($barang);
+        $data = PenjualanModel::find($penjualan);
         $data->update($request->all());
-        return PenjualanModel::find($barang);
+        return PenjualanModel::find($penjualan);
     }
 
-    public function destroy($barang)
+    public function destroy($penjualan)
     {
-        $data = PenjualanModel::find($barang);
+        $data = PenjualanModel::find($penjualan);
         $data->delete();
         return response()->json([
             'success' => true,
