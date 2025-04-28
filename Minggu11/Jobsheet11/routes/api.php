@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\KategoriController;
 use App\Http\Controllers\Api\BarangController;
+use App\Http\Controllers\Api\PenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,9 @@ Route::post('products', [BarangController::class, 'store']);
 Route::get('products/{barang}', [BarangController::class, 'show']);
 Route::put('products/{barang}', [BarangController::class, 'update']);
 Route::delete('products/{barang}', [BarangController::class, 'destroy']);
+
+Route::get('sales', [PenjualanController::class, 'index']);
+Route::post('sales', [PenjualanController::class, 'store']);
+Route::get('sales/{penjualan}', [PenjualanController::class, 'show']);
+Route::put('sales/{penjualan}', [PenjualanController::class, 'update']);
+Route::delete('sales/{penjualan}', [PenjualanController::class, 'destroy']);
